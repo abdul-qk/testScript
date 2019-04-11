@@ -2,6 +2,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="style.css">
 <title> Sample Template</title>
     <Script>
         var companyName;
@@ -52,16 +53,21 @@
     </Script>
 </head>
 <body onload="initialise()">
-<div class="row">
-    <div class="col-md-6 pt-2 ml-2">
-        <input type="text" id="CompanyName" placeholder="Company name"/>    
-    </div>
-    <img src="tick.png" id="img1" width="50px" height="50px" alt="delete" onclick="saveValues()"/>
-    <img src="edit.png" id="img2" width="50px" height="50px" alt="delete" onclick="editvalues()"/>
-    <img src="delete.png" id="img3" width="50px" height="50px" alt="delete" onclick="deletevalues()"/>
-   <!-- <div id="image1" class="col-md"></div>
-        <div id="image2" class="col-md"></div>
-    <div id="image2" class="col-md"></div>-->
+    <div class="container">
+        <h1>Test Script</h1>
+        <div class="row">
+        <div class="col-md-3 input-box">
+            <input type="text" id="CompanyName" placeholder="Company name"/>    
+        </div>
+        <div class="col-md-3">
+            <img src="tick.png" id="img1" class="img-fluid img" alt="save" onclick="saveValues()"/>
+            <img src="edit.png" id="img2" class="img-fluid img" alt="edit" onclick="editvalues()"/>
+            <img src="delete.png" id="img3" class="img-fluid img" alt="delete" onclick="deletevalues()"/>
+        </div>
+    <!-- <div id="image1" class="col-md"></div>
+            <div id="image2" class="col-md"></div>
+        <div id="image2" class="col-md"></div>-->
+        </div>
     </div>
 </body>
 </html>
