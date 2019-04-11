@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<title> Sample Template</title>
+    <Script>
+        var companyName;
+        const cName = document.querySelector('#CompanyName');
+        if(cName){
+            cName.addEventListener('input',updateOnChange);
+        }
+        
+         const updateOnChange =  function (e){
+            alert("updated");
+        }
+      
+       function saveValues(){
+           var datasample = document.getElementById('CompanyName').value;
+           localStorage.setItem('cName',datasample);
+         
+       }
+       function editvalues(){
+           companyName = document.getElementById('CompanyName').value;
+          document.getElementById('CompanyName').select();
+         
+       }
+       function deletevalues(){
+            document.getElementById('CompanyName').value = companyName;
+         
+       }
+        function initialise(){
+            const gotVal = localStorage.getItem('cName');
+            document.getElementById('CompanyName').value = gotVal;
+        }
+    </Script>
+</head>
+<body onload="initialise()">
+<div class="row">
+    <div class="col-md-6 pt-2 ml-2">
+        <input type="text" id="CompanyName" placeholder="Company name"/>
+        
+    </div>
+    <img src="tick.png" width="50px" height="50px" alt="delete" onclick="saveValues()"/>
+    <img src="edit.png" width="50px" height="50px" alt="delete" onclick="editvalues()"/>
+    <img src="delete.png" width="50px" height="50px" alt="delete" onclick="deletevalues()"/>
+   <!-- <div id="image1" class="col-md"></div>
+        <div id="image2" class="col-md"></div>
+    <div id="image2" class="col-md"></div>-->
+    </div>
+</body>
+</html>
