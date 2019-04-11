@@ -5,6 +5,7 @@
 <title> Sample Template</title>
     <Script>
         var companyName;
+        var tempSave;
         const cName = document.querySelector('#CompanyName');
         if(cName){
             cName.addEventListener('input',updateOnChange);
@@ -16,33 +17,48 @@
       
        function saveValues(){
            var datasample = document.getElementById('CompanyName').value;
+           tempSave = datasample;
            localStorage.setItem('cName',datasample);
          
        }
        function editvalues(){
-           companyName = document.getElementById('CompanyName').value;
-          document.getElementById('CompanyName').select();
+            companyName = document.getElementById('CompanyName').value;
+            document.getElementById('CompanyName').select();
+            document.getElementById('CompanyName').value = gotVal;
+            document.getElementById("img1").style.display ="block";
+            document.getElementById("img2").style.display ="none";
+            document.getElementById("img3").style.display ="block";
          
        }
        function deletevalues(){
-            document.getElementById('CompanyName').value = companyName;
+            document.getElementById('CompanyName').value = tempSave;
          
        }
         function initialise(){
             const gotVal = localStorage.getItem('cName');
-            document.getElementById('CompanyName').value = gotVal;
+            tempSave = gotVal;
+            if(gotVal){
+                document.getElementById('CompanyName').value = gotVal;
+                document.getElementById("img1").style.display ="none";
+                document.getElementById("img2").style.display ="block";
+                document.getElementById("img3").style.display ="none";
+            }else{
+                document.getElementById("img1").style.display ="block";
+                document.getElementById("img2").style.display ="none";
+                document.getElementById("img3").style.display ="none";
+            }
+            
         }
     </Script>
 </head>
 <body onload="initialise()">
 <div class="row">
     <div class="col-md-6 pt-2 ml-2">
-        <input type="text" id="CompanyName" placeholder="Company name"/>
-        
+        <input type="text" id="CompanyName" placeholder="Company name"/>    
     </div>
-    <img src="tick.png" width="50px" height="50px" alt="delete" onclick="saveValues()"/>
-    <img src="edit.png" width="50px" height="50px" alt="delete" onclick="editvalues()"/>
-    <img src="delete.png" width="50px" height="50px" alt="delete" onclick="deletevalues()"/>
+    <img src="tick.png" id="img1" width="50px" height="50px" alt="delete" onclick="saveValues()"/>
+    <img src="edit.png" id="img2" width="50px" height="50px" alt="delete" onclick="editvalues()"/>
+    <img src="delete.png" id="img3" width="50px" height="50px" alt="delete" onclick="deletevalues()"/>
    <!-- <div id="image1" class="col-md"></div>
         <div id="image2" class="col-md"></div>
     <div id="image2" class="col-md"></div>-->
